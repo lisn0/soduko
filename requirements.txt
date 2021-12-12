@@ -1,0 +1,2 @@
+HTMLParser==0.0.2
+pyswip==0.2.10
