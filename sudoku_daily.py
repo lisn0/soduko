@@ -13,6 +13,9 @@ except ImportError:
     import urllib as urllib_request
 
 
+prolog = Prolog()
+
+
 class DailySudokuPuzzle(HTMLParser):
     def __init__(self):
         self.puzzle = []
@@ -64,10 +67,10 @@ def solve(problem):
         return False
 
 
-if __name__ == "__main__":
+
+def solve_daily_puzzle():
     URL = "http://www.sudoku.org.uk/daily.asp"
 
-    prolog = Prolog()
     print("Getting puzzle from:", URL)
     puzzle = get_daily_sudoku(URL)
     print("-- PUZZLE --")
@@ -79,3 +82,7 @@ if __name__ == "__main__":
         pretty_print(solution)
     else:
         print("This puzzle has no solutions [is it valid?]")
+if __name__ == "__main__":
+
+    prolog = Prolog()
+    solve_daily_puzzle()

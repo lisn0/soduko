@@ -1,4 +1,7 @@
 from __future__ import print_function
+
+import random
+
 from pyswip.prolog import Prolog
 
 _ = 0
@@ -26,6 +29,8 @@ puzzle2 = [
     [8, _, 2, _, 9, _, 7, _, _]
 ]
 
+prolog = Prolog()
+
 
 def pretty_print(table):
     print("".join(["/---", "----" * 8, "\\"]))
@@ -45,8 +50,8 @@ def solve(problem):
         return False
 
 
-def main():
-    puzzle = puzzle1
+def main2():
+    puzzle = random.choice([puzzle1, puzzle2])
     print("-- PUZZLE --")
     pretty_print(puzzle)
     print()
@@ -60,4 +65,4 @@ def main():
 
 if __name__ == "__main__":
     prolog = Prolog()
-    main()
+    main2()
