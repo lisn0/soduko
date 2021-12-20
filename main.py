@@ -27,7 +27,7 @@ def menu():
                 "5": exit
             }
 
-        choice = input("Enter a number from 1 to 3: >")
+        choice = input("Enter a number from 1 to 5: >")
 
         choice_menu[choice]()
 
