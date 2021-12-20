@@ -1,4 +1,4 @@
-from sudoku import main2
+from sudoku import main2, main3
 from sudoku_daily import solve_daily_puzzle
 
 
@@ -14,10 +14,10 @@ def menu():
     print("######## ----------------------------------------------------------- ########")
     print("########                                                             ########")
     print("########                    Choose a option:                         ########")
-    print("########                                                             ########")
-    print("########      1) solve puzzle                                        ########")
-    print("########      2) solve daily puzzle from sudoku.org.uk               ########")
-    print("########      3) Exit                                                ########")
+    print("########      1) solve 9x9 puzzle                                     ########")
+    print("########      2) solve 4x4 puzzle                                        ########")
+    print("########      3) solve daily puzzle from sudoku.org.uk               ########")
+    print("########      4) Exit                                                ########")
     print("########                                                             ########")
     print("#############################################################################")
     print("* custom puzzle coming soon")
@@ -25,8 +25,8 @@ def menu():
         choice_menu = {
                 "2": solve_daily_puzzle,
                 "1": main2,
-                "3": exit,
-                "4": enter_puzzle
+                "3": main3,
+                "4": exit
 
             }
 

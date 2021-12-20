@@ -4,30 +4,7 @@ import random
 
 from pyswip.prolog import Prolog
 
-_ = 0
-puzzle1 = [
-    [_, 6, _, 1, _, 4, _, 5, _],
-    [_, _, 8, 3, _, 5, 6, _, _],
-    [2, _, _, _, _, _, _, _, 1],
-    [8, _, _, 4, _, 7, _, _, 6],
-    [_, _, 6, _, _, _, 3, _, _],
-    [7, _, _, 9, _, 1, _, _, 4],
-    [5, _, _, _, _, _, _, _, 2],
-    [_, _, 7, 2, _, 6, 9, _, _],
-    [_, 4, _, 5, _, 8, _, 7, _]
-]
-
-puzzle2 = [
-    [_, _, 1, _, 8, _, 6, _, 4],
-    [_, 3, 7, 6, _, _, _, _, _],
-    [5, _, _, _, _, _, _, _, _],
-    [_, _, _, _, _, 5, _, _, _],
-    [_, _, 6, _, 1, _, 8, _, _],
-    [_, _, _, 4, _, _, _, _, _],
-    [_, _, _, _, _, _, _, _, 3],
-    [_, _, _, _, _, 7, 5, 2, _],
-    [8, _, 2, _, 9, _, 7, _, _]
-]
+from puzzles import *
 
 prolog = Prolog()
 
@@ -39,10 +16,29 @@ def pretty_print(table):
     print("".join(["\\---", "----" * 8, "/"]))
 
 
+def pretty_print4(table):
+    print("".join(["/---", "----" * 3, "\\"]))
+    for row in table:
+        print("".join(["|", "|".join(" %s " % (i or " ") for i in row), "|"]))
+    print("".join(["\\---", "----" * 3, "/"]))
+
+
 def solve(problem):
     prolog.consult("./sudoku.pl")
     p = str(problem).replace("0", "_")
+    print('hooooo ', p)
     result = list(prolog.query("L=%s,sudoku(L)" % p, maxresult=1))
+    if result:
+        result = result[0]
+        return result["L"]
+    else:
+        return False
+
+
+def solve2(problem):
+    prolog.consult("./sudoku4.pl")
+    p = str(problem).replace("0", "_")
+    result = list(prolog.query("L=%s,sudoku4(L)" % p, maxresult=1))
     if result:
         result = result[0]
         return result["L"]
@@ -63,6 +59,19 @@ def main2():
         print("This puzzle has no solutions [is it valid?]")
 
 
+def main3():
+    puzzle = puzzl3
+    print("-- PUZZLE --")
+    pretty_print4(puzzle)
+    print()
+    print(" -- SOLUTION --")
+    solution = solve2(puzzle)
+    if solution:
+        pretty_print4(solution)
+    else:
+        print("This puzzle has no solutions [is it valid?]")
+
+
 if __name__ == "__main__":
     prolog = Prolog()
-    main2()
+    main3()
