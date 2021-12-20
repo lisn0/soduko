@@ -1,4 +1,3 @@
-# soduko
 # soduko Project
 ## sudoku expert system 
 ## AI College project 
