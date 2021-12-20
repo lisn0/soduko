@@ -26,7 +26,6 @@ def pretty_print4(table):
 def solve(problem):
     prolog.consult("./sudoku.pl")
     p = str(problem).replace("0", "_")
-    print('hooooo ', p)
     result = list(prolog.query("L=%s,sudoku(L)" % p, maxresult=1))
     if result:
         result = result[0]
@@ -72,19 +71,19 @@ def main3(puzzle=puzzl3):
 
 
 def user_input():
-    x = 4
-    y = 4
+    print("enter a 4x4 puzzle in te following formats (0 are the numbers to be guessed)\n"
+          "0 0 1 0\n"
+          "4 0 0 0\n"
+          "0 0 0 2\n"
+          "0 3 0 0")
+
     list1 = []
-    sublist = []
-    for i in range(x):
-        for j in range(y):
-            print("input ",i+1,j+1,":")
-            sublist.append(int(input()))
+    for _ in range(4):
+        sublist = list(map(int, input(">").split()))
         list1.append(sublist)
-        sublist = []
     main3(list1)
 
 
 if __name__ == "__main__":
     prolog = Prolog()
-    main3()
+    user_input()

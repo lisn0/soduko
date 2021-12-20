@@ -18,7 +18,6 @@ def menu():
     print("########      4) input 4x4 puzzle                                    ########")
     print("########      5) Exit                                                ########")
     print("#############################################################################")
-    print("* custom puzzle coming soon")
     while 1:
         choice_menu = {
                 "2": solve_daily_puzzle,
