@@ -1,5 +1,4 @@
-# soduko Project
-## sudoku expert system 
+# sudoku expert system Project
 ## AI College project 
 
 ### written by Zenned Bilel and Nermine Maddouri
