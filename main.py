@@ -1,9 +1,7 @@
-from sudoku import main2, main3
+from sudoku import main2, main3, user_input
 from sudoku_daily import solve_daily_puzzle
 
 
-def enter_puzzle():
-    puzzle = input("enter puzzle as a list 9*9")
 
 def menu():
     print("#############################################################################")
@@ -14,11 +12,11 @@ def menu():
     print("######## ----------------------------------------------------------- ########")
     print("########                                                             ########")
     print("########                    Choose a option:                         ########")
-    print("########      1) solve 9x9 puzzle                                     ########")
-    print("########      2) solve 4x4 puzzle                                        ########")
+    print("########      1) solve 9x9 puzzle                                    ########")
+    print("########      2) solve 4x4 puzzle                                    ########")
     print("########      3) solve daily puzzle from sudoku.org.uk               ########")
-    print("########      4) Exit                                                ########")
-    print("########                                                             ########")
+    print("########      4) input 4x4 puzzle                                    ########")
+    print("########      5) Exit                                                ########")
     print("#############################################################################")
     print("* custom puzzle coming soon")
     while 1:
@@ -26,8 +24,8 @@ def menu():
                 "2": solve_daily_puzzle,
                 "1": main2,
                 "3": main3,
-                "4": exit
-
+                "4": user_input,
+                "5": exit
             }
 
         choice = input("Enter a number from 1 to 3: >")
@@ -37,4 +35,3 @@ def menu():
 
 if __name__ == '__main__':
     menu()
-

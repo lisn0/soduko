@@ -59,8 +59,7 @@ def main2():
         print("This puzzle has no solutions [is it valid?]")
 
 
-def main3():
-    puzzle = puzzl3
+def main3(puzzle=puzzl3):
     print("-- PUZZLE --")
     pretty_print4(puzzle)
     print()
@@ -70,6 +69,20 @@ def main3():
         pretty_print4(solution)
     else:
         print("This puzzle has no solutions [is it valid?]")
+
+
+def user_input():
+    x = 4
+    y = 4
+    list1 = []
+    sublist = []
+    for i in range(x):
+        for j in range(y):
+            print("input ",i+1,j+1,":")
+            sublist.append(int(input()))
+        list1.append(sublist)
+        sublist = []
+    main3(list1)
 
 
 if __name__ == "__main__":
